@@ -1,0 +1,21 @@
+{
+    "name": "sabirov/yii2-anti-captcha-v2",
+    "description": "работа с anti-captcha.com через API v.2 ",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitriy Sabirov",
+            "email": "web8dew@yandex.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sabirov\\antiCaptcha\\": ""
+        }
+    }
+}
