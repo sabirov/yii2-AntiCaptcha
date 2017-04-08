@@ -2,7 +2,7 @@
     "name": "sabirov/yii2-anti-captcha-v2",
     "description": "работа с anti-captcha.com через API v.2 ",
     "type": "yii2-extension",
-    "keywords": ["yii2","extension"],
+    "keywords": ["yii2","extension","anti-captcha"],
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0.0"
+        "yiisoft/yii2": "~2.0.0",
+        "ext-curl": "*"
     },
     "autoload": {
         "psr-4": {
