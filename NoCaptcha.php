@@ -5,7 +5,7 @@
  * @email        web8dew@yandex.ru
  */
 
-namespace Sabirov\antiCaptcha;
+namespace Sabirov\AntiCaptcha;
 
 
 class NoCaptcha extends AntiCaptcha implements AntiCaptchaTaskProtocol {

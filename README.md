@@ -1,6 +1,6 @@
-работа с anti-captcha.com через API v.2 
+Работа с API anti-captcha.com
 ========================================
-работа с anti-captcha.com через API v.2 
+Работа с API anti-captcha.com 
 
 Installation
 ------------
