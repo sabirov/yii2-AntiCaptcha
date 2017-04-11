@@ -7,7 +7,6 @@
 
 namespace Sabirov\AntiCaptcha;
 
-
 interface AntiCaptchaTaskProtocol {
 	public function getPostData();
 	public function setTaskInfo($taskInfo);
