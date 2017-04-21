@@ -33,6 +33,7 @@ A simple example  :
 use Sabirov\AntiCaptcha\ImageToText;
 
 $anticaptcha = new ImageToText();
+$anticaptcha->setVerboseMode(true); // chatty mode ON
 $anticaptcha->setKey( 'YourСlientKey' );
 $anticaptcha->setFile( '/path/to/image' );
 
@@ -70,4 +71,37 @@ maxLength|setMaxLengthFlag($value)|Integer|No|0|**0** - no requirements **>1** -
 
 ### NoCaptchaTaskProxyless : Google Recaptcha puzzle solving without proxies
 
-> Refer to the [Official Documentation](https://anticaptcha.atlassian.net/wiki/display/API/NoCaptchaTaskProxyless+%3A+Google+Recaptcha+puzzle+solving+without+proxies)
+A simple example  :
+
+```php
+use Sabirov\AntiCaptcha\NoCaptchaProxyless;
+
+$anticaptcha = new NoCaptchaProxyless();
+$anticaptcha->setVerboseMode(true); // chatty mode ON
+$anticaptcha->setKey( 'YourСlientKey' );
+$anticaptcha->setWebsiteURL( 'https://www.instagram.com/' );
+$anticaptcha->setWebsiteKey( '6LebnxwUAAAAAGm3yH06pfqQtcMH0AYDwlsXnh-u' );
+
+if ( ! $anticaptcha->createTask() ) {
+	$anticaptcha->debout( "API v2 send failed - " . $anticaptcha->getErrorMessage(), "red" );
+	return false;
+}
+
+$taskId = $anticaptcha->getTaskId();
+
+if ( ! $anticaptcha->waitForResult() ) {
+	$anticaptcha->debout( "could not solve captcha", "red" );
+	$anticaptcha->debout( $anticaptcha->getErrorMessage() );
+	return false;
+} else {
+	echo "\nhash result: " . $anticaptcha->getTaskSolution() . "\n\n";
+}
+```
+
+Object structure:
+
+Property | Set property| Type | Required | Purpose
+---------|-------------|------|----------|--------
+websiteURL|setWebsiteURL( $value )|String|Yes|Address of target web page
+websiteKey|setWebsiteKey( $value )|String|Yes|Recaptcha website key                                              <div class="g-recaptcha" data-sitekey="THAT_ONE"></div>
+websiteSToken|setWebsiteSToken( $value )|String|No|Secret token for previous version of Recaptcha (now deprecated). In most cases websites use newer version and this token is not required.
